@@ -1,11 +1,12 @@
 import torch
 import numpy as np
 import os
+import random
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 from datasets import load_dataset, load_from_disk
 
 mmlu_dataset = load_dataset("cais/mmlu", 'miscellaneous')
-
+cwd = os.getcwd()
 
 def get_k_shot_examples(dataset, k, balanced=True, class_count=None):
   prompt = ""
@@ -23,6 +24,10 @@ def get_k_shot_examples(dataset, k, balanced=True, class_count=None):
         counts[dataset[i]['answer']] = counts.get(dataset[i]['answer'], 0) + 1
         example_indices.append(i)
       i += 1
+
+    random.shuffle(example_indices)
+    with open("rand_example_indices.txt", 'w+') as fp:
+        fp.write(str(example_indices) + '\n')
 
   else:
     example_indices = range(k)
@@ -92,7 +97,7 @@ def evaluate(example):
   example["model_answers"] = answers
   return example
 
-path_to_save = os.getcwd() + "/MMLU_misc_responses"
+path_to_save = os.getcwd() + "/MMLU_misc_responses_rand_prompt_order"
 results_dataset = mmlu_dataset['test'].map(evaluate)
 results_dataset.save_to_disk(path_to_save)
 
