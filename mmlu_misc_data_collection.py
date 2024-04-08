@@ -1,11 +1,10 @@
 import torch
-import torch.nn as nn
 import numpy as np
-import gc
+import os
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 from datasets import load_dataset, load_from_disk
 
-mmlu_misc_dataset = load_dataset("cais/mmlu", 'miscellaneous')
+mmlu_dataset = load_dataset("cais/mmlu", 'miscellaneous')
 
 
 def get_k_shot_examples(dataset, k, balanced=True, class_count=None):
@@ -45,7 +44,7 @@ def get_prompt(examples_prefix, entry):
 eight_shot_examples = get_k_shot_examples(mmlu_dataset['validation'], 8, True, 4)
 
 model_name = "meta-llama/Llama-2-7b-hf"
-torch.set_default_device("cuda：0")
+torch.set_default_device("cuda:0")
 model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, padding_side='left')
 
@@ -87,12 +86,13 @@ def evaluate(example):
     answers = generated_texts
     return answers
 
-  sample_number = 20
+  sample_number = 30
   answers = get_answers(example, sample_number, 1.0, 1)
   # save the results
   example["model_answers"] = answers
   return example
 
-path_to_save = "/data/chenran/llama_data_collect/misc_responses"
+path_to_save = os.getcwd() + "/MMLU_misc_responses"
 results_dataset = mmlu_dataset['test'].map(evaluate)
 results_dataset.save_to_disk(path_to_save)
+
