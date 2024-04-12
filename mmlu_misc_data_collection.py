@@ -4,14 +4,18 @@ import os
 import random
 import time
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
-from datasets import load_dataset, load_from_disk
+from datasets import load_dataset, load_from_disk, concatenate_datasets
 
-subset = "miscellaneous"
+#prevents memory fragmentation
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+
+subset = "high_school_us_history"
 mmlu_dataset = load_dataset("cais/mmlu", subset)
 cwd = os.getcwd()
 path_to_save = os.getcwd() + "/MMLU_" + subset + "_" + str(time.time_ns())
 
-def get_k_shot_examples(dataset, k, balanced=True, class_count=None):
+
+def get_k_shot_examples(dataset, k, balanced=True, class_count=None, shuffle=False):
   prompt = ""
   template = "Question: {0}\nA. {1}\nB. {2}\nC. {3}\nD. {4}\nAnswer: {5}\n\n"
   example_indices = []
@@ -28,7 +32,16 @@ def get_k_shot_examples(dataset, k, balanced=True, class_count=None):
         example_indices.append(i)
       i += 1
 
-    random.shuffle(example_indices)
+    #Not enough entries to make an class-balanced k-shot prompt.
+    #if len(example_indices) < k:
+
+    # if we shuffle the order
+    if shuffle:
+        random.shuffle(example_indices)
+
+    if not os.path.exists(path_to_save):
+        os.mkdir(path_to_save)
+
     with open(path_to_save + "/indices.txt", 'w+') as fp:
         fp.write(str(example_indices) + '\n')
 
@@ -48,8 +61,12 @@ def get_prompt(examples_prefix, entry):
   prompt += template.format(*arg_list)
   return prompt
 
+val_and_dev_dataset = concatenate_datasets([mmlu_dataset['validation'], mmlu_dataset['dev']])
+eight_shot_examples = get_k_shot_examples(val_and_dev_dataset, 4, True, 4)
 
-eight_shot_examples = get_k_shot_examples(mmlu_dataset['validation'], 8, True, 4)
+with open(path_to_save + "/indices.txt", 'a') as fp:
+    fp.write('\nPrompt:\n' + eight_shot_examples + '\n')
+
 
 model_name = "meta-llama/Llama-2-7b-hf"
 torch.set_default_device("cuda:0")
@@ -94,7 +111,7 @@ def evaluate(example):
     answers = generated_texts
     return answers
 
-  sample_number = 30
+  sample_number = 20
   answers = get_answers(example, sample_number, 1.0, 1)
   # save the results
   example["model_answers"] = answers

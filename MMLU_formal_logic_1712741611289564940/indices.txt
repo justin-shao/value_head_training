@@ -1,0 +1,67 @@
+[0, 1, 2, 3, 4, 5, 12, 14]
+
+Prompt:
+Question: Identify the antecedent of the following conditional proposition: If the Bees win their first game, then neither the Aardvarks nor the Chipmunks win their first games.
+A. The Aardvarks do not win their first game.
+B. The Bees win their first game.
+C. The Chipmunks do not win their first game.
+D. Neither the Aardvarks nor the Chipmunks win their first games.
+Answer: B
+
+Question:  Which of the given formulas of PL is the best symbolization of the following sentence?
+Elliott likes to skateboard or he likes to write songs and to play them.
+A. S ∨ (W • P)
+B. (S ∨ W) ∨ P
+C. S • (W ∨ P)
+D. (S • W) ∨ P
+Answer: A
+
+Question:  Which of the given formulas of PL is the best symbolization of the following sentence?
+A married couple can report their combined income and deduct their combined allowable expenses on one return provided that only one had income or they did not live together all year.
+A. (R • D) ⊃ (I ∨ ~L)
+B. (I ∨ ~L) ⊃ (R • D)
+C. R • [(I ⊃ D) ∨ ~L]
+D. ~(I ∨ L) ⊃ (R • D)
+Answer: B
+
+Question:  Select the best translation into predicate logic.Some robbers steal money from a bank. (Bx: x is a bank; Mx: x is money; Rx: x is a robber; Sxyz: x steals y from z)
+A. (∃x){Bx • (∃y)[Ry • (∀z)(Mz ⊃ Syzx)]}
+B. (∃x)(∃y)(∃z)[(Rx • By) • (Mz • Syxz)]
+C. (∃x){Rx ⊃ (∃y)[My ⊃ (∃z)(Bz ⊃ Sxyz)]}
+D. (∃x){Rx • (∃y)[My • (∃z)(Bz • Sxyz)]}
+Answer: D
+
+Question:  Construct a complete truth table for the following pairs of propositions. Then, using the truth tables, determine whether the statements are logically equivalent or contradictory. If neither, determine whether they are consistent or inconsistent. Justify your answers.
+~[(G ⊃ H) ∨ ~H] and ~G ⊃ G
+A. Logically equivalent
+B. Contradictory
+C. Neither logically equivalent nor contradictory, but consistent
+D. Inconsistent
+Answer: D
+
+Question:  Construct a complete truth table for the following argument. Then, using the truth table, determine whether the argument is valid or invalid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)
+D ⊃ (~E ⊃ F)
+~D ⊃ E
+~E / F
+A. Valid
+B. Invalid. Counterexample when D and E are true and F is false
+C. Invalid. Counterexample when D is true and E and F are false
+D. Invalid. Counterexample when E is true and D and F are false
+Answer: A
+
+Question:  Construct a complete truth table for the following pairs of propositions. Then, using the truth tables, determine whether the statements are logically equivalent or contradictory. If neither, determine whether they are consistent or inconsistent. Justify your answers.
+A ⊃ ~B and B ⊃ A
+A. Logically equivalent
+B. Contradictory
+C. Neither logically equivalent nor contradictory, but consistent
+D. Inconsistent
+Answer: C
+
+Question:  Select the best translation into predicate logic: No people drive on Mars.
+A. ~Pd
+B. (∀x)(Px ∨ ~Dx)
+C. (∀x)(Px ⊃ ~Dx)
+D. ~Dp
+Answer: C
+
+
