@@ -1,0 +1,32 @@
+[0, 1, 3, 11]
+
+Prompt:
+Question: The allele associated with sickle cell anemia apparently reached a high frequency in some human populations due to:
+A. random mating
+B. superior fitness of heterozygotes in areas where malaria was present
+C. migration of individuals with the allele into other populations
+D. a high mutation rate at that specific gene
+Answer: B
+
+Question: RFLP analysis is a technique that
+A. uses hybridization to detect specific DNA restriction fragments in genomic DNA
+B. is used to determine whether a gene is transcribed in specific cells
+C. measures the transfer frequency of genes during conjugation
+D. is used to detect genetic variation at the protein level
+Answer: A
+
+Question: Marfan syndrome is caused by mutations in the gene which encodes _______.
+A. Collagen
+B. Dystrophin
+C. Elastin
+D. Fibrillin
+Answer: D
+
+Question: Large triplet repeat expansions can be detected by:
+A. polymerase chain reaction.
+B. single strand conformational polymorphism analysis.
+C. Southern blotting.
+D. Western blotting.
+Answer: C
+
+

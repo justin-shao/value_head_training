@@ -1,0 +1,32 @@
+[0, 1, 3, 4]
+
+Prompt:
+Question: Which of the following fallacies happens when someone argues that a claim should be accepted based on evidence that is not presented, but is asserted to be well known or obvious.
+A. self evident truths
+B. suppressed evidence
+C. appeal to pride
+D. ad populum
+Answer: A
+
+Question: The use of a word in two different senses in an argument is the fallacy of...
+A. Appeal to the person
+B. Equivocation
+C. Appeal to tradition
+D. Appeal to emotion
+Answer: B
+
+Question: Which of the following is true of a valid disjunctive syllogism?
+A. The minor premise must affirm the antecedent or deny the consequent
+B. Every term must be used twice
+C. The middle term must be used in at least one premise in a universal or unqualified sense
+D. None of the above
+Answer: D
+
+Question: Appeal to authority involves
+A. arguing that a claim should be accepted based only on the evidence that prestigious people accept it
+B. arguing that small changes will lead to significant effects, when there is no evidence the effects will be that significant
+C. arguing that a claim should be accepted based only on the evidence that an authority figure agrees with it
+D. reasoning that a claim must be true based only on the evidence that it has been claimed quite often
+Answer: C
+
+

@@ -1,0 +1,32 @@
+[0, 1, 3, 5]
+
+Prompt:
+Question: One of the aims of philosophy is to think critically about whether there are good reasons for adopting our beliefs.  Reasons are considered "good reasons" if they are consistent with everyday experience and:
+A. are part of a set of religious, moral, or political beliefs that an individual feels deeply about.
+B. are considered good by at least one culture, sub-culture, or individual.
+C. cannot be interpreted in different ways by different people or cultures.
+D. take into account objections, are acceptable to impartial third parties, and avoid undesirable consequences.
+Answer: D
+
+Question: The existence of a form of mental illness known as multiple personality disorder seems to suggest that _____.
+A. the existence of the mind is a delusion
+B. the mind is divisible
+C. the mind is indivisible
+D. mental illness is incurable
+Answer: B
+
+Question: Interest theories of the good define goodness in terms of:
+A. approval or desire.
+B. benefit to oneself.
+C. the consequences of one’s actions.
+D. prima facie duties.
+Answer: A
+
+Question: Parfit claims that choosing to save the larger number in a trade-off case:
+A. does not reflect an equal concern for the survival of each, for it does not give equal weight to saving each.
+B. does not reflect an equal concern for the survival of each, for it does not give each an equal chance of survival.
+C. reflects an equal concern for the survival of each, for it gives equal weight to saving each.
+D. reflects an equal concern for the survival of each, for it gives each an equal chance of survival.
+Answer: C
+
+

@@ -1,0 +1,35 @@
+[0, 1, 2, 4]
+
+Prompt:
+Question: Which of the following statements about plasma lipoproteins is correct?
+
+A. They have a hydrophobic core of triacylglycerol and cholesterol esters
+B. They have a hydrophobic core of phospholipids and free cholesterol
+C. They have a hydrophilic core of triacylglycerol and cholesterol esters
+D. They have a hydrophobic core of phospholipid and apolipoproteins
+Answer: A
+
+Question: Which of the following statements is correct?
+
+A. Insulin suppresses the activity of glycogen synthase
+B. Insulin mediates glucose uptake in the brain
+C. "Prediabetes" is a condition characterized by an increased risk for the future development of type 2 diabetes
+D. The rise in insulin concentration after meal ingestion is reduced in type 1 but not in type 2 diabetes
+Answer: C
+
+Question: What mechanisms potentially accelerate age related cognitive decline (as of 2020 medical knowledge)
+A. Glucose neurotoxicity
+B. Insulin insensitivity
+C. Systemic inflammation
+D. All of the above
+Answer: D
+
+Question: On average, obese people have a higher basal metabolic rate (BMR) than lean people, mainly because the body of the obese has more (in kg):
+
+A. adipose tissue (fat mass)
+B. Lean mass (fat-free mass)
+C. glycogen
+D. water
+Answer: B
+
+

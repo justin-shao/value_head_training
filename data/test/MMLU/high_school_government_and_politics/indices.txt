@@ -1,0 +1,32 @@
+[0, 1, 2, 13]
+
+Prompt:
+Question: Which of the following accurately describes congressional committees? I. The committee chairpersons always belong to the majority party. II. Seats on each committee are divided between the two major parties in exact proportion to the parties' representation in Congress. III. They recommend whether Congress should pass various pieces of legislation, and those recommendations are always approved by the full congressional body. IV. When a committee vote results in a tie, the vice president casts the tie-breaking vote.
+A. I only
+B. II only
+C. I and III only
+D. II and III only
+Answer: A
+
+Question: Which of the following statements about interest groups is accurate?
+A. They don't use campaign funding as a tactic to win favor with legislators.
+B. They are more successful when their members all belong to the same political party.
+C. They rarely cover issues that appeal to residents of more than one state.
+D. They generally are not focused on appealing to a broad group of people.
+Answer: D
+
+Question: The government often finds it difficult to make substantive changes to entitlement programs for which of the following reasons?
+A. Most such programs were established by constitutional amendment.
+B. These programs are extremely popular among their numerous beneficiaries.
+C. Such programs are vital to national defense.
+D. Most such programs primarily benefit the wealthy, a powerful political bloc.
+Answer: B
+
+Question: An appointment to which of the following offices is NOT subject to confirmation by the U.S. Senate?
+A. Securities and Exchange commissioner
+B. Secretary of the Interior
+C. White House Chief of Staff
+D. Administrator of the Environmental Protection Agency
+Answer: C
+
+

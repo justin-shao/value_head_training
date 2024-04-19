@@ -1,0 +1,44 @@
+[0, 2, 4, 5]
+
+Prompt:
+Question: Suppose that a test that the true value of the intercept coefficient is zero results in non-rejection. What would be the appropriate conclusion?
+A. Drop the intercept and re-run the regression
+B. Retain the intercept
+C. Re-compute the test statistic
+D. The regression line is running exactly through the origin
+Answer: B
+
+Question: Suppose that observations are available on the monthly bond prices of 100 companies for 5 years. What type of data are these?
+A. Cross-sectional
+B. Time-series
+C. Panel
+D. Qualitative
+Answer: C
+
+Question: If a researcher uses daily data to examine a particular problem and creates a variable that assigns a numerical value of 1 to Monday observations, what term would best describe this type of number?
+A. Continuous
+B. Cardinal
+C. Ordinal
+D. Nominal
+Answer: D
+
+Question: Consider the following MA(3) process
+
+yt = μ + Εt + θ1Εt-1 + θ2Εt-2 + θ3Εt-3 , where σt is a zero mean white noise process with variance σ2.
+
+Which of the following statements are true?
+
+i) The process yt has zero mean
+
+ii) The autocorrelation function will have a zero value at lag 5
+
+iii) The process yt has variance σ2
+
+iv) The autocorrelation function will have a value of one at lag 0
+A. (ii) and (iv) only
+B. (i) and (iii) only
+C. (i), (ii), and (iii) only
+D. (i), (ii), (iii), and (iv)
+Answer: A
+
+

@@ -1,0 +1,32 @@
+[0, 1, 2, 7]
+
+Prompt:
+Question: Which of these statements best defines social constructivism?
+A. Social constructivism argues that security can be constructed, and that the human world is not given or natural but instead is a product of human actors.
+B. Social constructivism only studies aspects of the international system that are based in the societal sphere, such as issues of poverty, race relations and gender.
+C. Societal constructivism is concerned with the study of 'natural' systems, hierarchies and values that exist within the international system and which define its societies.
+D. Social constructivism as a concept eludes definition; it is a group of loosely based theories and ideas rather than a specific political or scientific approach.
+Answer: A
+
+Question: What has been the effect of chemical weapons on international society?
+A. The Chemical Weapons Convention (CWC) prohibited the possession or deployment of chemical weapons; however it failed to implement stipulations that would require signatories to declare their existing stocks of chemical weapons, to identify facilities that were once involved in chemical production, or to announce when their existing stocks would be destroyed.
+B. The CWC made some important developments regarding the use and possession of chemical weapons and the destruction of existing stockpiles. However, the treaty failed to establish an independent body empowered with the capacity to check treaty compliance. Lack of supra-state authority has undermined the ability to enforce those developments. Given the anarchical nature of international society it may be in the national security interest to retain stocks.
+C. Chemical weapons continue to exert a determining influence on international society. As early as the 1970s military strategists were convinced of the deterrence effects chemical weapons could have, comparable to the second strike survival logic of nuclear deterrence. The preferences of strategists resulted in continued manufacture and stockpiling of weapons creating an international crisis of stability.
+D. While the CWC has been ratified by the majority of international society, some nations with a large chemical capability at their disposal have yet to enter into the treaty. However, to some analysts the destructive military potential would be limited, having a moderate effect on a well-equipped army in conventional warfare. Chemical arsenal essentially falls under the category of the "poor mans" weaponry, being simplistic and inexpensive whilst having limited military utility. However, the concern remains of the prospective impact a terrorist chemical attack could have on civilian populations.
+Answer: D
+
+Question: Which of the following statements best describes the wider security impacts of disease in terms of achieving security?
+A. Health security is vital to achieving human security, when considering the individual as the referent object of security studies, fatal or potentially fatal infection directly undermines the attainment of security.
+B. As levels of infection within a population rise, the potential for strategically important groups such as civil servants, judges, and government officials etc to become infected will also rise, thus directly challenging regime security.
+C. Disease within a population threatens security both directly and indirectly, as it affects the health of the individual as well as the ability of that individual to perform vital roles within the wider society.
+D. Health issues, such as the prevalence of infectious disease or the ability of citizens to participate in military service, are not a matter of concern for security analysts.
+Answer: C
+
+Question: What is the relationship between historical materialism (HM) and discourse?
+A. As a philosophical approach, HM focuses purely on discourse and as such is distinctive from the other major approaches to international relations.
+B. HM is interested in how changes in particular structures and the inequalities of power associated with them are vital to the rise and fall of discourses.
+C. HM regards discourse between states and government actors to be the most important sphere for analysis within the international system.
+D. Under the HM paradigm, the realm of political discourse is considered to be of secondary importance to the examination of practical or lived experiences of political interaction.
+Answer: B
+
+

@@ -52,6 +52,26 @@
       },
       "_type": "Sequence"
     },
+    "ABCD_probs": {
+      "feature": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "_type": "Sequence"
+    },
+    "logits": {
+      "feature": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "_type": "Sequence"
+    },
     "IK prediction": {
       "dtype": "float32",
       "_type": "Value"

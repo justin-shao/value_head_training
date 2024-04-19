@@ -1,0 +1,34 @@
+[0, 1, 3, 5]
+
+Prompt:
+Question: What is penetration testing?
+A. A procedure for testing libraries or other program components for vulnerabilities
+B. Whole-system testing for security flaws and bugs
+C. A security-minded form of unit testing that applies early in the development process
+D. All of the above
+Answer: B
+
+Question: Suppose a user has an iPhone (running iOS) and downloads an app called Innocent from the Apple App Store and installs it. The user unlocks the phone and runs Innocent. Innocent exploits a bug in the iOS kernel which allows Innocent to redirect execution inside the kernel to code that Innocent controls. Now Innocent can execute any instructions it likes inside the iOS kernel. Innocent is not able to exploit any bugs in the phone’s secure enclave. Can Innocent read the user’s private information stored in the phone’s flash (e.g. Contacts and messages), or will the security measures described in the paper keep the data private? If Innocent is only able to see encrypted data, then the phone has successfully kept the data private. Circle the security features of the phone (if any) that will prevent Innocent from reading information from the flash on the phone.
+A. Secure boot chain
+B. System software authorization 
+C. The secure enclave’s ephemeral key
+D. None of the above
+Answer: D
+
+Question: Suppose we define h(H, m) = E(m, H)h(H,m)=E(m,H). Then the resulting h(\cdot,\cdot)h(⋅,⋅) is not collision resistant: to build a collision (H,m)(H,m) and (H’,m’)(H’,m’) choose random (H,m,m’)(H,m,m’) and construct H’H’ as follows:
+A. H’=D(m’, E(m,H))
+B. H’=E(m’,D(m,H))
+C. H’=E(m’,E(m,H))
+D. H’=D(m’,D(m,H))
+Answer: A
+
+Question: Assume that a TLS connection has been established successfully between a client and a server. Establishing the session included checking the server certificate and executing a DiffieHelmann exchange, but the client did not provide a client certificate. Further, assume that the client and server are honest, that the client and server don’t leak their keys, and that the cryptography is good. Which of the following attacks does TLS protect against?
+1. An attacker stealing the server’s private key and reading the plaintext of recorded past connections.
+2. An attacker breaking into a certificate authority and creating a fake certificate for the server.
+A. True, True
+B. False, False
+C. True, False
+D. False, True
+Answer: C
+
+

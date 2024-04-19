@@ -1,0 +1,32 @@
+[0, 1, 2, 4]
+
+Prompt:
+Question: Which of the following would lead to an expansion of the money supply?
+A. The FED raises the discount rate.
+B. The FED buys government securities in the secondary market.
+C. The federal government deficit-spends.
+D. The FED raises reserve requirements.
+Answer: B
+
+Question: Which of the following must exist to allow for mutual benefit from specialization and trade between two countries?
+A. Comparative advantage in the production of a good or service
+B. Absolute advantage in the production of a good or service
+C. Increasing marginal returns in production
+D. Absolute and comparative advantage in the production of a good or service
+Answer: A
+
+Question: When government uses expansionary fiscal policy the spending multiplier is often smaller than predicted because of
+A. lower taxes.
+B. increasing net exports.
+C. falling unemployment.
+D. rising price levels.
+Answer: D
+
+Question: What will happen to the equilibrium price level and the equilibrium quantity of output if the aggregate demand curve shifts to the right? Assume an upward sloping aggregate supply curve.
+A. The equilibrium price level increases while the equilibrium quantity of output decreases.
+B. The equilibrium price level decreases while the equilibrium quantity of output increases.
+C. The equilibrium price level and quantity of output increase.
+D. The equilibrium price level and quantity of output decrease.
+Answer: C
+
+

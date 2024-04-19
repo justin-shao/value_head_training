@@ -1,0 +1,32 @@
+[0, 1, 2, 10]
+
+Prompt:
+Question: A real image can be cast on a screen by a
+A. converging lens
+B. diverging lens
+C. Either of these
+D. Neither of these
+Answer: A
+
+Question: Consider a ball rolling down an inclined plane. The normal force on the ball (the force perpendicular to the plane).
+A. is mg
+B. is greater than mg always
+C. may be greater or less than mg
+D. is less than mg always
+Answer: D
+
+Question: Which of these can NOT be deflected by electrical or magnetic means?
+A. Alpha rays
+B. Beta rays
+C. Gamma rays
+D. All can
+Answer: C
+
+Question: Einstein’s second postulate tells us that the speed of light
+A. depends on one’s frame of reference.
+B. is a constant in all frames of reference.
+C. provides accurate clocks.
+D. slows in a transparent medium.
+Answer: B
+
+

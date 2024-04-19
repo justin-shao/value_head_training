@@ -1,0 +1,32 @@
+[0, 1, 3, 16]
+
+Prompt:
+Question: Axl Tulip has a thin clear discharge coming from his penis and mild discomfort when he urinates. He is most likely suffering from _______ and should be treated with ________.
+A. gonorrhea penicillin
+B. gonorrhea tetracycline
+C. chlamydia penicillin
+D. chlamydia tetracycline
+Answer: D
+
+Question: In adulthood, exhibitionists
+A. are typically psychiatrically disturbed
+B. are unassertive
+C. have excellent social skills
+D. have fulfilling sex lives
+Answer: B
+
+Question: Vaginal lubrication begins __________ after the onset of arousing stimuli
+A. 10 to 30 seconds
+B. 30 to 60 seconds
+C. 1 to 2 minutes
+D. 2 to 4 minutes
+Answer: A
+
+Question: The most common disorder among men who seek sexual therapy is:
+A. premature ejaculation
+B. inhibited ejaculation
+C. erectile disorder
+D. ejaculatory disorder
+Answer: C
+
+

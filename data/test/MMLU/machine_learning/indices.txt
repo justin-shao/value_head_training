@@ -1,0 +1,32 @@
+[0, 2, 3, 4]
+
+Prompt:
+Question: Which of the following guidelines is applicable to initialization of the weight vector in a fully connected neural network.
+A. Should not set it to zero since otherwise it will cause overfitting
+B. Should not set it to zero since otherwise (stochastic) gradient descent will explore a very small space
+C. Should set it to zero since otherwise it causes a bias
+D. Should set it to zero in order to preserve symmetry across all neurons
+Answer: B
+
+Question: Statement 1| The L2 penalty in a ridge regression is equivalent to a Laplace prior on the weights. Statement 2| There is at least one set of 4 points in R^3 that can be shattered by the hypothesis set of all 2D planes in R^3.
+A. True, True
+B. False, False
+C. True, False
+D. False, True
+Answer: D
+
+Question: For the one-parameter model, mean-Square error (MSE) is defined as follows: 1/(2N) \sum (y_n − β_0)^2 . We have a half term in the front because,
+A. scaling MSE by half makes gradient descent converge faster.
+B. presence of half makes it easy to do grid search. 
+C. it does not matter whether half is there or not. 
+D. none of the above
+Answer: C
+
+Question: In Yann LeCun's cake, the cherry on top is
+A. reinforcement learning
+B. self-supervised learning
+C. unsupervised learning
+D. supervised learning
+Answer: A
+
+

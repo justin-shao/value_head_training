@@ -1,0 +1,32 @@
+[0, 1, 3, 8]
+
+Prompt:
+Question: An 84-year-old female is diagnosed with a third recurrence of breast cancer that has now metastasized to the brain and lungs. She does not wish to pursue further treatment at this time despite being advised that this is a terminal condition. Her family insists on trying both radiation and chemotherapy in hopes that the cancer will again be successfully treated. It is the duty of the physician to
+A. agree with the family since they have the patient's best interest in mind
+B. convince the patient to try either radiation or chemotherapy
+C. disregard the family's wishes
+D. protect the patient's autonomy
+Answer: D
+
+Question: A cohort study is conducted to compare the incidence of adverse effects of a recently approved antihypertensive pharmacotherapy with that of conventional therapy. A total of 20,000 patients are enrolled. Twelve thousand are prescribed the recently approved therapy, and 8,000 are prescribed conventional therapy. Patients in the study and control groups are matched for baseline blood pressure, age, and gender. Data are collected from the records of the patients' ongoing clinical care. Results show that those receiving the newly approved treatment have twice the incidence of fatigue compared with those receiving the conventional treatment. The results are statistically significant (p=0.01). Which of the following potential flaws is most likely to invalidate this study?
+A. Publication bias
+B. Selection bias
+C. Type I error
+D. Type II error
+Answer: B
+
+Question: A 14-year-old girl with a 9-year history of type 1 diabetes mellitus is brought to the physician by her mother for a follow-up examination. She has been admitted to the hospital twice in the past 3 months because of diabetic ketoacidosis. She previously had been compliant with monitoring her blood glucose concentration and with her diet and insulin regimen. She acknowledges that, when she is with her peers, she eats whatever she wants and does not check her blood glucose concentration. She adds, "I'm embarrassed to inject myself in front of them." The physician is having a great deal of difficulty with her 15-year-old son who has been truant from school and sneaking out of the house. She says to the patient, "You should be ashamed for not taking care of yourself. We've all worked so hard to keep you healthy." Which of the following terms best describes the physician's reaction to the patient?
+A. Countertransference
+B. Identification with the aggressor
+C. Projection
+D. Splitting
+Answer: A
+
+Question: A 45-year-old man with AIDS comes to the community health center because of a 1-week history of fever, chills, sweating, mild shortness of breath, and nonproductive cough. Medical history is also remarkable for pneumonia 3 years ago that required hospitalization. Today, he says that he lost his job 6 months ago, is now homeless, and cannot afford to buy his antiretroviral medications. Vital signs are temperature 38.6°C (101.5°F), pulse 82/min, respirations 20/min, and blood pressure 116/72 mm Hg. Pulse oximetry on room air shows an oxygen saturation of 97%. The health center is very busy with several patients waiting to be evaluated. Which of the following is the most appropriate next step?
+A. Arrange a direct admission to the hospital for this patient
+B. Continue with obtaining a thorough history and examining this patient
+C. Place masks on the patient and yourself and then continue to evaluate him
+D. Send this patient for chest x-rays, and while they are being obtained examine the next patient
+Answer: C
+
+

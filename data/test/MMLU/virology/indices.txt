@@ -1,0 +1,32 @@
+[0, 1, 2, 3]
+
+Prompt:
+Question: What is essential for diagnosis of arenavirus infection?
+A. Clinical history of recent travel and living in endemic area
+B. Cell culture laboratory (laboratory IV)
+C. RT PCR kit
+D. Immuno test
+Answer: C
+
+Question: At a specific hospital, patients diagnosed with pancreatic carcinoma are asked about their current smoking status. At the same hospital, patients without pancreatic carcinoma are also asked about their current smoking status. The following table is constructed.  Smokers Non-smokers Total  Pancreatic Cancer 50 40 90  No Pancreatic Cancer 60 80 140  Total 110 120 230  What is the odds ratio that a patient diagnosed with pancreatic cancer is a current smoker compared to a patient without pancreatic cancer?
+A. (50/90)/(60/140)
+B. (50/40)/(60/80)
+C. (50/110)/(40/120)
+D. (50/60)/(40/80)
+Answer: A
+
+Question: Some facts about viruses: identify the incorrect fact:
+A. The first viruses arose 2 billion years ago as parasites of Algae
+B. The first viruses came from outer space
+C. Viruses evolved before bacteria which in turn evolved before cells
+D. They can infect all forms of life even themselves!
+Answer: B
+
+Question: “Test and treat” depends on:
+A. The proportion of infected persons willing to be tested
+B. The willingness of persons testing HIV positive to begin treatment
+C. The availability of resources for persons testing HIV positive
+D. All of the above
+Answer: D
+
+

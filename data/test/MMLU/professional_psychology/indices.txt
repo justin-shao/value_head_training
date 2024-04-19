@@ -1,0 +1,32 @@
+[0, 5, 9, 18]
+
+Prompt:
+Question: Which of the following statements best exemplifies criterion-referenced (as opposed to norm-referenced) measurement
+A. Alice answered 63% of the items correctly
+B. Susan’s score was average for her class
+C. James ranked at the 86th percentile on the Scholastic Aptitude Test (SAT
+D. Joe received a z score of 1.6
+Answer: A
+
+Question: According to classical test theory, the variance of the obtained rest scores is equal to the
+A. sum of the general variance and the specific variance
+B. sum of the true score variance and the error variance
+C. variance error of the distribution of scores
+D. variance error of the mean of the scores
+Answer: B
+
+Question: Dr. La-Keysha Leonard, a licensed psychologist, has been seeing a prison inmate in group therapy for several months and is asked by the parole board to evaluate the inmate to assist with their decision regarding his parole. As an ethical psychologist, Dr. Leonard should:
+A. agree to evaluate the inmate.
+B. agree to evaluate the inmate only if she believes she can do so objectively and without bias.
+C. agree to do so only if she is allowed to explain the purpose of the evaluation and the limits on confidentiality to the inmate.
+D. refuse to evaluate the inmate for the purpose of parole.
+Answer: D
+
+Question: Group A and Group B each are composed of equal numbers of men and women. Both groups read a prose passage. Group A is told that it was written by a man, and Group B is told that it was written by a woman. Both groups then rate the quality of the prose. What are the likely results
+A. The males in Group B will rate the prose as significantly poorer than will the males in Group A
+B. The females in Group B will rate the prose as significantly poorer than will the females in Group A
+C. Group A will rate the prose as significantly better than will Group B
+D. The females in Group A will rate the prose 2s significantly poorer than will the females in Group B; the males in Group A will rare the prose as significantly better than will the males in Group B
+Answer: C
+
+

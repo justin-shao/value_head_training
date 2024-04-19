@@ -1,0 +1,49 @@
+[0, 1, 4, 6]
+
+Prompt:
+Question: This question refers to the following information.
+"The Italian nation has been at last united in our own days, and we all rejoiced in its union. Yet we may be allowed to doubt whether the union was not a little too speedy and a little too thorough. It is surely carrying unity too far to wipe out all traces of the independent being, for most purposes to wipe out the very name, of such a land as Sicily. It jars on our feelings to find that, while Ireland at least forms part of the royal style of its sovereign, Sicily is no longer even a geographical expression. The island realm of Roger has sunk to be seven provinces of the kingdom on the mainland. And there is another result of Italian unity, a result in which we may rejoice without drawbacks, but which still has somewhat of sadness about it as finally ending that great phase of the history of Europe with which we have throughout been dealing. Never were ties with the past so fully snapped as when the army of Italy entered liberated Rome. Of all novelties in European history the greatest was when Rome became the centre of a dominion with acknowledged metes and bounds, the head in short of a local Italian kingdom. "Rome the capital of Italy" was a formula which might well gladden our hearts; but it was a formula which formally swept away the œcumenical position, the œcumenical traditions, of Rome&….
+But the kingdom of Italy is not an appendage to Rome; Rome is the head of the kingdom. The whole is greater than its part; Rome, by her own free will and by the free will of Italy, has become less than Italy. By becoming the willing head of an Italian kingdom she has formally cast aside her Imperial traditions as they were not cast aside when brute force made her the head of a French department."
+Edward A. Freeman, British historian and politician, The Chief Periods of European History, 1885
+The author would likely take exception to the methods of which leader during this time period in Italy?
+A. Napoleon III
+B. Giuseppe Garibaldi
+C. Victor Emmanuel
+D. Count Cavour
+Answer: B
+
+Question: This question refers to the following information.
+Read the following excerpt.
+If civilized education developed in every child its natural inclinations, we should see nearly all rich children enamored of various very plebeian occupations, such as that of the mason, the carpenter, the smith, the saddler. I have instanced Louis the XVI, who loved the trade of locksmith; an Infanta of Spain preferred that of shoemaker; a certain king of Denmark gratified himself by manufacturing syringes; the former king of Naples loved to sell the fish he had caught in the market-place himself; the prince of Parma, whom Condillac had trained in metaphysical subtitles, in the understanding of intuition, of cognition, had no taste but for the occupation of church-warden and lay-brother.
+The great majority of wealthy children would follow these plebeian tastes, if civilized education did not oppose the development of them; and if the filthiness of the workshops and the coarseness of the workmen did not arouse a repugnance stronger than the attraction. What child of a prince is there who has no taste for one of the four occupations I have just mentioned, that of mason, carpenter, smith, saddler, and who would not advance in them if he beheld from an early age the work carried on in blight workshops, by refined people, who would always arrange a miniature workshop for children, with little implements and light labor?
+—Charles Fourier, On Education, 1838
+Which of the following groups of intellectuals would Fourier belong to, according to the document above?
+A. Utilitarians
+B. Laissez-faire capitalists
+C. Utopian socialists
+D. Marxist communists
+Answer: C
+
+Question: This question refers to the following information.
+Read the following governmental report.
+Of the 450 sick persons whom the inhabitants were unable to relieve, 200 were turned out, and these we saw die one by one as they lay on the roadside. A large number still remain, and to each of them it is only possible to dole out the least scrap of bread. We only give bread to those who would otherwise die. The staple dish here consists of mice, which the inhabitants hunt, so desperate are they from hunger. They devour roots which the animals cannot eat; one can, in fact, not put into words the things one sees. . . . This narrative, far from exaggerating, rather understates the horror of the case, for it does not record the hundredth part of the misery in this district. Those who have not witnessed it with their own eyes cannot imagine how great it is. Not a day passes but at least 200 people die of famine in the two provinces. We certify to having ourselves seen herds, not of cattle, but of men and women, wandering about the fields between Rheims and Rhétel, turning up the earth like pigs to find a few roots; and as they can only find rotten ones, and not half enough of them, they become so weak that they have not strength left to seek food. The parish priest at Boult, whose letter we enclose, tells us he has buried three of his parishioners who died of hunger. The rest subsisted on chopped straw mixed with earth, of which they composed a food which cannot be called bread. Other persons in the same place lived on the bodies of animals which had died of disease, and which the curé, otherwise unable to help his people, allowed them to roast at the presbytery fire.
+—Report of the Estates of Normandy, 1651
+Which of the following intellectual movements was occurring in Europe at the time this document was created and would help improve crop yields?
+A. The Enlightenment
+B. Divine Right theory of rule
+C. The rise of existentialism
+D. The Scientific Revolution
+Answer: D
+
+Question: This question refers to the following information.
+The following account of the Paris Exposition of 1889.
+"The opportunities to study the natural history of man in Paris during the Exposition, and especially in August, when the great Congresses and the French Association held their sessions, were unparalleled in the history of anthropology. At any time the French capital affords rare advantages to the anthropologist. The Musée and Laboratoire Broca, the anthropometric operations of Bertillon in the Palais de Justice, the courses of lectures in the école d'Anthropologie, the collections in the Jardin de Plantes, the facilities for original work in the écoles de Medicine, and the hospitals give to the comparative anatomist and biologist abundant employment."
+Otis T. Mason, American ethnologist and curator, 1889
+The opportunities described in the text can be attributed to
+A. the stability brought to France by the Third Republic
+B. France's preparation for the upcoming Franco-Prussian War during the Second Empire
+C. the labor friendly policies of the Second Republic
+D. financial power of the bourgeoisie during the Bourbon Restoration
+Answer: A
+
+

@@ -18,20 +18,27 @@ import torch.nn as nn
 import torch
 import numpy as np
 import os
+from peft import PeftModel, PeftConfig
 
   
 def main():
   model_name = "justshao/llama2-7b-with-confidence"
+  lora_model_name = "/data/chenran/llama_data_collect/value_head_training/output_dir"
   device = "cuda" if torch.cuda.is_available() else "cpu"
   torch.set_default_device(device)
 
   tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, padding_side="left")
-  model = CausalLMWithValueHeadForValueHeadTraining.from_pretrained(
+  num_labels = 2
+  model = AutoModelForSequenceClassification.from_pretrained(
     model_name,
-    load_in_8bit=True
+    num_labels=num_labels
   )
+  print(model)
+  model = PeftModel.from_pretrained(model, lora_model_name)
+  print(model)
   
-  PATH = "misc_train_checkpoint"
+  
+  """ PATH = "misc_train_checkpoint"
   checkpoint = torch.load(PATH, map_location=device)
   model_state_read = checkpoint["model_state_dict"]
   # For some reasons, the saved keys are in format: model.[...]
@@ -48,8 +55,9 @@ def main():
   loss = checkpoint['loss']
   model.to(device)
   print(loss)
+ """
 
-  val_dataset = load_from_disk("/data/chenran/llama_data_collect/value_head_training/data/val/MMLU_miscellaneous_1713117765655231364")
+  val_dataset = load_from_disk("/data/chenran/llama_data_collect/value_head_training/data/val/MMLU_miscellaneous_1713348212672635832")
   
   def get_predicted_logit(example):
     with torch.no_grad():
@@ -59,16 +67,22 @@ def main():
         return_attention_mask=True
       ) 
       for k, v in inputs.items():
-        print(v)
         inputs[k] = v.to(device)
-      print(inputs)
       with torch.no_grad():
-        outputs = model(**inputs)
-      example['IK prediction'] = outputs[1][-1]
+        outputs = model(**inputs, return_dict=True)
+      """ print(outputs.keys())
+      print(outputs.logits) """
+      
+      #pooled_logits = outputs[0/1] (depending on if loss is present)
+      # should have shape (batch, 2)
+      probs = nn.functional.softmax(outputs.logits, dim=1)
+      example['logits'] = outputs.logits
+      example['IK prediction'] = probs[0][1]
     return example
   
-  for i in model.named_parameters():
-    print(f"{i[0]} -> {i[1].device}")
+  """ for i in model.named_parameters():
+    print(f"{i[0]} -> {i[1].device}") """
+  
   val_dataset = val_dataset.map(get_predicted_logit)
   val_dataset.save_to_disk("data/val/misc_with_IK_prediction")
 

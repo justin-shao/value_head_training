@@ -1,0 +1,32 @@
+[0, 1, 2, 7]
+
+Prompt:
+Question: An important source of information on the credit rating of retail businesses is
+A. the Retail Merchants Association
+B. the local chamber of commerce
+C. Dun & Bradstreet, Inc.
+D. the United States Retail Credit Association
+Answer: C
+
+Question: In preparation for a writing unit on short stories, a teacher presents students with several examples of short stories and works with them to identify defining characteristics of the genre. Which of the following best describes this instructional strategy?
+A. Conferencing
+B. Discipline-based inquiry
+C. Self-Regulated Strategy Development
+D. Introduction-Body-Conclusion strategy
+Answer: B
+
+Question: Paper will burn at approximately what temperature in Fahrenheit?
+A. 986 degrees
+B. 2125 degrees
+C. 3985 degrees
+D. 451 degrees
+Answer: D
+
+Question: Which of the following materials has a resistance that is LEAST affected by temperature changes?
+A. Copper
+B. Carbon
+C. Germanium
+D. Silicon
+Answer: A
+
+

@@ -1,0 +1,32 @@
+[0, 1, 4, 6]
+
+Prompt:
+Question: Which American colony known for its religious tolerance did Roger Williams found in 1636?
+A. Massachusetts
+B. Rhode Island
+C. Virginia
+D. Vermont
+Answer: B
+
+Question: Which of these months has 31 days?
+A. March
+B. April
+C. June
+D. September
+Answer: A
+
+Question: What is the revenue of peugeots sold in France per year (as of 2013)?
+A. approximately $200 million
+B. approximately $2 billion
+C. approximately $20 billion
+D. approximately $200 billion
+Answer: C
+
+Question: Barium belongs to which metal group?
+A. Transition
+B. Lanthanide
+C. Alkali
+D. Alkaline Earth
+Answer: D
+
+

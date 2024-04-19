@@ -112,8 +112,10 @@ def main():
   use_llama = True
   if use_llama:
     model_name = "meta-llama/Llama-2-7b-hf"
+    num_labels = 2
     model = AutoModelForSequenceClassification.from_pretrained(
-      model_name
+      model_name,
+      num_labels = num_labels
     )
 
   else:
@@ -126,18 +128,27 @@ def main():
   if getattr(tokenizer, "pad_token_id") is None:
     tokenizer.pad_token_id = tokenizer.eos_token_id
     tokenizer.pad_token = tokenizer.eos_token
+    model.config.pad_token_id = tokenizer.pad_token_id
 
   def prepare_dataset_entry(example):
+    #TODO: extend this logic for responses with length > 1. Can generate a soft_label
     correct_letter_choice = "ABCD"[example['answer']]
     example['correct_count'] = sum(i == correct_letter_choice for i in example['model_answers'])
     example['label'] = example['correct_count'] / len(example['model_answers'])
+
     #include up to "Answer:" reflects P(IK)
     #if includes up to "Answer: C" reflects P(correct)
-    #TODO: should inlucde the options, though context length might be problematic.
+    #TODO: should inlucde the answer options, though context length might be problematic.
     #TODO: prompting only question right now
     #template = "Question: {0}\nA. {1}\nB. {2}\nC. {3}\nD. {4}\nAnswer:"
     #example['text'] = template.format(*([example['question']] + example['choices']))
     example['text'] = example['question']
+    example["ABCD_probs"] = example["ABCD_probs"][0]
+    is_correct = [0] * 4
+    is_correct[example["answer"]] = 1
+    example["is_correct"] = is_correct
+    correct_prob = example["ABCD_probs"][example["answer"]]
+    example['label'] = [1.0 - correct_prob, correct_prob]
     return example
 
   def tokenize_function(examples):
@@ -147,10 +158,15 @@ def main():
         )
   
   # Step 1: format dataset
-  raw_dataset = load_from_disk("/data/chenran/llama_data_collect/value_head_training/data/MMLU_misc_responses")
+  raw_dataset = load_from_disk("/data/chenran/llama_data_collect/value_head_training/data/MMLU_miscellaneous_1713211091682062920")
   dataset = raw_dataset.map(prepare_dataset_entry)
   dataset = dataset.map(tokenize_function, batched=True)
   dataset = dataset.remove_columns(['model_answers', 'question', 'subject', 'choices', 'text', 'correct_count', 'answer'])
+
+  raw_val_dataset = load_from_disk("/data/chenran/llama_data_collect/value_head_training/data/val/MMLU_miscellaneous_1713348212672635832")
+  val_dataset = raw_val_dataset.map(prepare_dataset_entry)
+  val_dataset = val_dataset.map(tokenize_function, batched=True)
+  val_dataset = val_dataset.remove_columns(['model_answers', 'question', 'subject', 'choices', 'text', 'correct_count', 'answer'])
 
   print(dataset.features)
   data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding=True)
@@ -167,6 +183,8 @@ def main():
   )
   model.config.use_cache = False 
   model = get_peft_model(model, peft_config)
+
+  model.save_pretrained("output_dir")
   """
   print(model.print_trainable_parameters()) 
   print(AutoModelForSequenceClassification.from_pretrained(model_name))
@@ -174,23 +192,30 @@ def main():
 
   training_args = TrainingArguments(
     output_dir="misc_test_trainer",
-    num_train_epochs=3
+    num_train_epochs=10,
+    save_steps=300,
+    save_total_limit=5,
+    logging_strategy='epoch',
+    logging_first_step=True,
+    evaluation_strategy='epoch'
   ) 
 
   trainer = Trainer(
     model=model,
     args=training_args,
     data_collator=data_collator,
-    train_dataset=dataset
+    train_dataset=dataset,
+    eval_dataset=val_dataset
   )
   trainer.train()
+  trainer.save_model("final-checkpoint")
 
 """   train_dataloader = DataLoader(
     dataset, shuffle=True, batch_size=2, collate_fn=data_collator
   )
   
   optimizer = AdamW(model.parameters(), lr=2.5e-5)
-  num_epochs = 4
+  num_epochs = 5
   num_training_steps = num_epochs * len(train_dataloader)
   lr_scheduler = get_scheduler(
     "linear",

@@ -1,0 +1,32 @@
+[0, 1, 6, 8]
+
+Prompt:
+Question: Exits on a highway are numbered consecutively from 1 to 50. The distance from exit 41 to exit 50 is 100 km. If each exit is at least 6 km from the next exit, what is the longest possible distance, in kilometers, between exit 47 and exit 48?
+A. 52
+B. 51
+C. 50
+D. 49
+Answer: A
+
+Question: In a group of 11 people, T of them always tell the truth, and L always lie. Each person names two other people and claims that of the two, exactly one of them is lying. Each person is named in this way by exactly two other people. Find the sum of all possible values of T.
+A. 30
+B. 12
+C. 20
+D. 6
+Answer: B
+
+Question: What is the maximum value of $4(x + 7)(2 - x)$, over all real numbers $x$?
+A. -2.5
+B. 4
+C. 81
+D. 56
+Answer: C
+
+Question: When $\sqrt[3]{-128}$ is simplified, the result is $a\sqrt[3]{b}$, where $a$ is an integer, and $b$ is a positive integer. If $b$ is as small as possible, then what is $a+b$?
+A. 2
+B. -4
+C. 6
+D. -2
+Answer: D
+
+

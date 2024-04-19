@@ -1,0 +1,32 @@
+[0, 1, 3, 4]
+
+Prompt:
+Question: ___________ act as cues by indicating to a potential customer that there is a bargain to be had.
+A. Odd-number pricing.
+B. Sale signs.
+C. Relative price.
+D. Price surplus.
+Answer: B
+
+Question: Considering what the audiences' communications needs and engaging with them using one-way, two-way, or dialogic communications is referred to as:
+A. Engagement.
+B. Responses.
+C. Advertisement.
+D. Publicity.
+Answer: A
+
+Question:  _____________ is influenced by perceptions of the fairness of prices set, latitude of price acceptance (customers appear willing to accept a price within a range of prices suggesting a 'price zone of tolerance'), magnitude (absolute price) and frequency of purchase, price presentation (how prices are presented might produce different levels of willingness to pay), and advertising.
+A. Brand awareness.
+B. Price perception.
+C. Willingness to pay.
+D. Price consciousness.
+Answer: C
+
+Question: Which of the following terms best fits the activity of marketing communications?
+A. Making products available.
+B. Convenience of location.
+C. High level of regulation.
+D. Developing messages that can be understood and acted on by target audiences.
+Answer: D
+
+

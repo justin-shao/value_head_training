@@ -1,0 +1,32 @@
+[0, 3, 5, 6]
+
+Prompt:
+Question:  Which of the following best describes Gill's response to Kass's argument that the notion of being "better off dead" is incoherent?
+A. Nonexistent people can still benefit from some things.
+B. Even if the notion is incoherent, there's nothing incoherent about preferring to be dead.
+C. Not suffering is always better than suffering.
+D. Kass unjustifiably assumes that dying implies no longer existing.
+Answer: B
+
+Question:  Fine argues that states are not clubs because
+A. it is not possible today for would-be immigrants to get together to set up a state of their own.
+B. exclusion from a golf club is unlikely to have a devastating impact on the life of a would-be member.
+C. both A and B
+D. neither A nor B
+Answer: C
+
+Question:  In Altman's terminology, which of the following would qualify as "low value" speech in a university context?
+A. hate speech couched in the discourse of science
+B. the use of a racial epithet by one student directed at another
+C. both A and B
+D. neither A nor B
+Answer: A
+
+Question:  Which of the following is an example of a virtue?
+A. pleasure
+B. hunger
+C. desire
+D. courage
+Answer: D
+
+

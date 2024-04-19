@@ -1,0 +1,32 @@
+[0, 1, 3, 4]
+
+Prompt:
+Question: Which of the following is NOT a category of Shari'ah law?
+A. Criminal
+B. Neutral
+C. Unlawful
+D. Commendable
+Answer: A
+
+Question:  Which Guru ordered the building of the Darbar Sahib, also known as the Divine Court?
+A. Guru Nanak
+B. Guru Ram Das
+C. Guru Arjan
+D. Guru Amar Das
+Answer: C
+
+Question: Which of the following was part of the role of a deaconess?
+A. Ministering to the sick
+B. Preparing women for baptism
+C. Praying for the suffering
+D. All of the above
+Answer: D
+
+Question:  Which term refers to the five main areas into which early Christianity was divided?
+A. Presbyteries
+B. Sees
+C. Churches
+D. Synods
+Answer: B
+
+

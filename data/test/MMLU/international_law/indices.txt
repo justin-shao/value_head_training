@@ -1,0 +1,32 @@
+[0, 1, 3, 10]
+
+Prompt:
+Question: What kind of passage does qualify as 'innocent passage'?
+A. Innocent passage is the passage that does not involve any criminal activity
+B. A vessel's passage is considered 'innocent' where it is not prejudicial to the peace, good order or security of the coastal State
+C. Innocent passage concerns only vessels of the same nationality with the coastal State
+D. Innocent passage concerns only the passage of merchant vessels and not of warships
+Answer: B
+
+Question: What kind of State practice is required?
+A. Widespread, consistent and uniform practice, consisting both of acts and omissions.
+B. Only widespread, consistent and uniform acts and not omissions of States
+C. Widespread acts and omissions of States but not necessarily consistent or uniform
+D. Consistent practice of few States, including both acts and omissions, which is met with protestation by the other States
+Answer: A
+
+Question: What is the 'optional; clause' in the ICJ Statute?
+A. Optional clause is the clause in the ICJ Statute, which provides for the applicable law, according to the intention of the parties
+B. Optional clause determines the intention of the parties to accept that the decision of the Court will be final and binding
+C. Optional clause is the declaration deposited by a State, whereby it accepts the jurisdiction of the Court in respect of international legal disputes in relation to any other State accepting the same obligation.
+D. Optional clause is the clause that the parties deposit, which sets out the procedure of the written and oral pleadings
+Answer: C
+
+Question: What is required for a general rule of customary law to be formed?
+A. Only general, widespread and consistent practice on the part of States is required
+B. The consistent practice of few States is sufficient
+C. The legal conviction that a certain practice of a State is in accordance with international law is the most significant requirement
+D. Both the elements of widespread and consistent State practice and of the opinio juris are required
+Answer: D
+
+

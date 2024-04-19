@@ -1,0 +1,32 @@
+[0, 1, 3, 13]
+
+Prompt:
+Question: Type I muscle fibres have the following characteristics:
+A. white, glycolytic, slow contracting.
+B. white, oxidative, slow contracting.
+C. red, oxidative, fast contracting.
+D. red, oxidative, slow contracting.
+Answer: D
+
+Question: Mr Wood has just returned from surgery and has severe internal bleeding. Which of the following observations would you NOT expect to find on undertaking post-operative observations?
+A. Hypotension.
+B. Bradycardia.
+C. Confusion
+D. Tachypnoea.
+Answer: B
+
+Question: How many 'true' movements are available at the hip?
+A. 4
+B. 5
+C. 6
+D. 7
+Answer: C
+
+Question: Which of the following is true of blackouts and dizziness?
+A. Confusion following a blackout is strongly suggestive of a fit
+B. Pre-syncope is another term for a blackout
+C. An epileptic fit always leads to the loss of consciousness
+D. In the investigation of a blackout a blood sugar estimation is of no value
+Answer: A
+
+
