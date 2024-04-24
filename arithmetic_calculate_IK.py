@@ -57,9 +57,9 @@ def setup():
 
 def main():
   huggingface_hub.login("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")
-  division = 'val'
-  dataset_dir = "/data/chenran/llama_data_collect/value_head_training/llama_data/" + division + "/MMLU_5shot_postprocess/all"
-  dataset_with_prediction = "/data/chenran/llama_data_collect/value_head_training/llama_data/" + division + "/MMLU_5shot_with_IK"
+  division = 'test'
+  input_data_dir = "/data/chenran/llama_data_collect/value_head_training/llama_data/arithmetic/" + division
+  with_predicted_IK_dir ="/data/chenran/llama_data_collect/value_head_training/llama_data/arithmetic" + division + "_with_IK"
   model_name = "justshao/llama2-test"
   lora_model_name = "/data/chenran/llama_data_collect/value_head_training/final-checkpoint_5shot"
   device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -79,55 +79,38 @@ def main():
   #print(model)
   model = PeftModel.from_pretrained(model, lora_model_name)
   #model.push_to_hub(model_name)
-
+  
+  example_prompt = "Question: What is 4721 + 18397?\n\nAnswer: 23118\nQuestion: What is 13656 + 45155?\n\nAnswer: 58811\nQuestion: What is 4785 - 8417?\n\nAnswer: -3632\nQuestion: What is 6 + 0?\n\nAnswer: 6\nQuestion: What is 7486 + 1057?\n\nAnswer: 8543"
   def tokenize_function(examples):
+    full_prompts = list(example_prompt + question for question in examples["context"])
     return tokenizer(
-        examples["text"], 
+        full_prompts, 
         return_attention_mask=True
         )
   
-  def prepare_dataset_entry(example):
-    #include up to "Answer:" -> reflects P(IK)
-    #includes up to "Answer: C" -> reflects P(correct)
-    example['text'] = example['prompt']
-    correct_prob = example["correct_prob"]
-    example['label'] = [1.0 - correct_prob, correct_prob]
-    return example
   
-  
-  raw_dataset = load_from_disk(dataset_dir)
-  dataset = raw_dataset.map(prepare_dataset_entry)
-  dataset = dataset.map(tokenize_function, batched=True)
-  dataset = dataset.remove_columns(['prompt', 'ABCD_probs', 'is_correct', 'ABCD_entropy', 'correct_prob','model_answers', 'question', 'subject', 'choices', 'text', 'answer'])
-  print(dataset.column_names)
+  raw_dataset = load_from_disk(input_data_dir)
+  tokenzied_dataset = raw_dataset.map(tokenize_function, batched=True)
+  tokenzied_dataset = tokenzied_dataset.remove_columns(raw_dataset.column_names)
+  print(raw_dataset.column_names)
 
   data_collator  = DataCollatorWithPadding(tokenizer=tokenizer, padding=True)
   train_dataloader = DataLoader(
-    dataset, shuffle=False, batch_size=8, collate_fn=data_collator
+    tokenzied_dataset, shuffle=False, batch_size=8, collate_fn=data_collator
   )
-  losses = []
+
   IK_pred = []
   for batch in tqdm.tqdm(train_dataloader):
     batch = {k: v.to(device) for k, v in batch.items()}
     with torch.no_grad():
       outputs = model(**batch, return_dict=True)
-    loss = outputs['loss'].detach()
     #output keys: [loss, logits, past_key_values]
-
-    losses.append(loss.item())
     predicted_ik = nn.functional.sigmoid(outputs['logits'][:, 1]).tolist()
     IK_pred.extend(predicted_ik)
-    """ 
-    print(outputs['logits']) 
-    print(nn.BCEWithLogitsLoss()(outputs['logits'], batch['labels']))
-    print(loss.item())
-    print(batch['labels'].dtype)
-    print(model.base_model.config.problem_type)
-    return """
   
-  dataset_with_predicted_IK = raw_dataset.add_column("predicted IK", IK_pred)
-  dataset_with_predicted_IK.save_to_disk(dataset_with_prediction)
-  
+  dataset_with_predictde_IK = raw_dataset.add_column("predicted IK", IK_pred)
+  dataset_with_predictde_IK.save_to_disk(with_predicted_IK_dir)
+
 
 if __name__ == "__main__":
   main()

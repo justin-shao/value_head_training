@@ -1,0 +1,24 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "subject": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "avg_accuracy": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "ECE": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "count": {
+      "dtype": "int64",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

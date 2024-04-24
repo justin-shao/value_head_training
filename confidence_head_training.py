@@ -6,8 +6,9 @@ from transformers import (
   TrainingArguments, 
   Trainer, 
   DataCollatorWithPadding,
-  AutoModelForSequenceClassification
+  AutoModelForSequenceClassification,
 ) 
+import huggingface_hub
 from trl import AutoModelForCausalLMWithValueHead
 from datasets import load_from_disk
 from torch.utils.data import DataLoader
@@ -19,48 +20,6 @@ import numpy as np
 import os
 from peft import get_peft_model, LoraConfig, TaskType
 
-
-class CausalLMWithValueHeadForValueHeadTraining(AutoModelForCausalLMWithValueHead):
-  """
-  Simple wrapper around AutoModelForCausalLMWithValueHead.
-  Change made to forward() method is to return loss calculated on last token's value prediction
-  """
-  def __init__(self, pretrained_model, **kwargs):
-    super().__init__(pretrained_model, **kwargs)
-    self.loss_fnc = nn.BCEWithLogitsLoss()
-     
-  def forward(self, input_ids=None, past_key_values=None, attention_mask=None, **kwargs):
-    """
-    No need for lm_logits. Keep loss at first element to use Trainer API.
-    
-    Returns: (BCE loss, logits evaluated on last token)
-    """
-    # outputs = tuple(lm_logits, loss, value_head_results)
-    # lm_logits shape: (batch, max_seq_len, vocab_size)
-    # value_head_results shape: (batch, max_seq_len)
-    labels = None
-    if "labels" in kwargs:
-     labels = kwargs.pop('labels', None)
-    
-    outputs = super().forward(input_ids, past_key_values, attention_mask, **kwargs)
-    
-    logits = outputs[2]
-    batch_size = outputs[2].shape[0]
-
-    # Determines the index before the first padding_token
-    sequence_lengths = torch.eq(input_ids, self.config.pad_token_id).int().argmax(-1) - 1
-    sequence_lengths = sequence_lengths % input_ids.shape[-1]
-    sequence_lengths = sequence_lengths.to(logits.device)
-      
-    pooled_logits = logits[torch.arange(batch_size, device=logits.device), sequence_lengths]
-
-    loss = None
-    if not labels is None:
-      loss = self.loss_fnc(pooled_logits.squeeze(), labels.squeeze())
-
-    # TODO: error message, "pooled_logits used before reference". Check what is being passed in?
-    return (loss, pooled_logits)
-      
 
 def initial_setup():
   model_name = "meta-llama/Llama-2-7b-hf"
@@ -95,7 +54,7 @@ def example():
                        return_attention_mask=True)
     
   with torch.no_grad():
-    model_w_valuehead = CausalLMWithValueHeadForValueHeadTraining.from_pretrained(model_name)
+    model_w_valuehead = AutoModelForSequenceClassification.from_pretrained(model_name)
     value_output = model_w_valuehead(**inputs, labels=torch.tensor([1.0, 0.5]))
 
     sample_generation = model_w_valuehead.generate(**inputs, 
@@ -106,48 +65,52 @@ def example():
 
 
 def main():
+  test_dataset_dir = "/data/chenran/llama_data_collect/value_head_training/llama_data/test/MMLU_5shot_postprocess/all"
+  val_dataset_dir ="/data/chenran/llama_data_collect/value_head_training/llama_data/val/MMLU_postprocess/all"
   os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
   device = "cuda" if torch.cuda.is_available() else "cpu"
 
-  use_llama = True
+  use_llama = False
   if use_llama:
     model_name = "meta-llama/Llama-2-7b-hf"
     num_labels = 2
     model = AutoModelForSequenceClassification.from_pretrained(
       model_name,
-      num_labels = num_labels
+      num_labels = num_labels,
+      torch_dtype=torch.bfloat16
     )
-
   else:
-    model_name = "justshao/llama2-7b-with-confidence"
-    model = CausalLMWithValueHeadForValueHeadTraining.from_pretrained(
-      model_name
+    model_name = "justshao/llama2-test"
+    model = AutoModelForSequenceClassification.from_pretrained(
+      model_name,
+      num_labels=2,
+      vocab_size=32001,
+      torch_dtype=torch.bfloat16
     ).to(device) 
+    print(model)
   
   tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, padding_side="left") 
-  if getattr(tokenizer, "pad_token_id") is None:
-    tokenizer.pad_token_id = tokenizer.eos_token_id
-    tokenizer.pad_token = tokenizer.eos_token
+  if use_llama or getattr(tokenizer, "pad_token_id") is None:
+    tokenizer.add_special_tokens({"pad_token":"<pad>"})
+    model.resize_token_embeddings(len(tokenizer))
     model.config.pad_token_id = tokenizer.pad_token_id
+    print(model)
+    #return
+    huggingface_hub.login("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")
+    model.push_to_hub("justshao/llama2-test")
+    model.config.push_to_hub("justshao/llama2-test")
+    tokenizer.push_to_hub("justshao/llama2-test")
+    return
 
   def prepare_dataset_entry(example):
     #TODO: extend this logic for responses with length > 1. Can generate a soft_label
-    correct_letter_choice = "ABCD"[example['answer']]
+    """ correct_letter_choice = "ABCD"[example['answer']]
     example['correct_count'] = sum(i == correct_letter_choice for i in example['model_answers'])
-    example['label'] = example['correct_count'] / len(example['model_answers'])
-
-    #include up to "Answer:" reflects P(IK)
-    #if includes up to "Answer: C" reflects P(correct)
-    #TODO: should inlucde the answer options, though context length might be problematic.
-    #TODO: prompting only question right now
-    #template = "Question: {0}\nA. {1}\nB. {2}\nC. {3}\nD. {4}\nAnswer:"
-    #example['text'] = template.format(*([example['question']] + example['choices']))
-    example['text'] = example['question']
-    example["ABCD_probs"] = example["ABCD_probs"][0]
-    is_correct = [0] * 4
-    is_correct[example["answer"]] = 1
-    example["is_correct"] = is_correct
-    correct_prob = example["ABCD_probs"][example["answer"]]
+    example['label'] = example['correct_count'] / len(example['model_answers']) """
+    #include up to "Answer:" -> reflects P(IK)
+    #includes up to "Answer: C" -> reflects P(correct)
+    example['text'] = example['prompt']
+    correct_prob = example["correct_prob"]
     example['label'] = [1.0 - correct_prob, correct_prob]
     return example
 
@@ -158,15 +121,15 @@ def main():
         )
   
   # Step 1: format dataset
-  raw_dataset = load_from_disk("/data/chenran/llama_data_collect/value_head_training/data/MMLU_miscellaneous_1713211091682062920")
+  raw_dataset = load_from_disk(test_dataset_dir)
   dataset = raw_dataset.map(prepare_dataset_entry)
   dataset = dataset.map(tokenize_function, batched=True)
-  dataset = dataset.remove_columns(['model_answers', 'question', 'subject', 'choices', 'text', 'correct_count', 'answer'])
+  dataset = dataset.remove_columns(['model_answers', 'question', 'subject', 'choices', 'text', 'answer'])
 
-  raw_val_dataset = load_from_disk("/data/chenran/llama_data_collect/value_head_training/data/val/MMLU_miscellaneous_1713348212672635832")
+  raw_val_dataset = load_from_disk(val_dataset_dir)
   val_dataset = raw_val_dataset.map(prepare_dataset_entry)
   val_dataset = val_dataset.map(tokenize_function, batched=True)
-  val_dataset = val_dataset.remove_columns(['model_answers', 'question', 'subject', 'choices', 'text', 'correct_count', 'answer'])
+  val_dataset = val_dataset.remove_columns(['model_answers', 'question', 'subject', 'choices', 'text', 'answer'])
 
   print(dataset.features)
   data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding=True)
@@ -184,20 +147,26 @@ def main():
   model.config.use_cache = False 
   model = get_peft_model(model, peft_config)
 
-  model.save_pretrained("output_dir")
-  """
+  model.save_pretrained("output_dir_5shot")
+  print(model)
+  model.push_to_hub("justshao/llama2-test")
+  
+  
   print(model.print_trainable_parameters()) 
-  print(AutoModelForSequenceClassification.from_pretrained(model_name))
-  """
 
   training_args = TrainingArguments(
-    output_dir="misc_test_trainer",
-    num_train_epochs=10,
-    save_steps=300,
+    output_dir="LORA_trained_on_MMLU_5shot_test",
+    num_train_epochs=5,
+    save_steps=200,
     save_total_limit=5,
     logging_strategy='epoch',
     logging_first_step=True,
-    evaluation_strategy='epoch'
+    evaluation_strategy='epoch',
+    bf16=True,
+    per_device_train_batch_size=2,
+    per_device_eval_batch_size=2,
+    gradient_accumulation_steps=8,
+    push_to_hub=True
   ) 
 
   trainer = Trainer(
@@ -207,49 +176,22 @@ def main():
     train_dataset=dataset,
     eval_dataset=val_dataset
   )
-  trainer.train()
-  trainer.save_model("final-checkpoint")
+  trainer.train(resume_from_checkpoint = False)
+  trainer.save_model("final-checkpoint_5shot")
 
-"""   train_dataloader = DataLoader(
-    dataset, shuffle=True, batch_size=2, collate_fn=data_collator
-  )
-  
-  optimizer = AdamW(model.parameters(), lr=2.5e-5)
-  num_epochs = 5
-  num_training_steps = num_epochs * len(train_dataloader)
-  lr_scheduler = get_scheduler(
-    "linear",
-    optimizer=optimizer,
-    num_warmup_steps=0,
-    num_training_steps=num_training_steps,
-  )
+class CustomTrainer(Trainer):
+  def compute_loss(self, model, inputs, return_outputs=False):
+    labels = inputs.get("labels")
+    # forward pass
+    outputs = model(**inputs)
+    #loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+    logits = outputs['logits'] if isinstance(outputs, dict) else outputs[1]
+    # compute custom loss
+    # only use the second logit, aka logit of IK
+    loss_fct = nn.BCEWithLogitsLoss(pos_weight = torch.tensor([0, 1]))
+    loss = loss_fct(logits, labels)
+    return (loss, outputs) if return_outputs else loss
 
-  progress_bar = tqdm(range(num_training_steps))
-  model.train()
-  loss_values = []
-  for epoch in range(num_epochs):
-    running_loss = 0.0
-    for batch in train_dataloader:
-      batch = {k: v.to(device) for k, v in batch.items()}
-      outputs = model(**batch)
-      loss = outputs[0]
-      running_loss += loss.detach()
-      loss.backward()
-
-      optimizer.step()
-      lr_scheduler.step()
-      optimizer.zero_grad()
-      progress_bar.update(1) 
-    loss_values.append(running_loss / len(dataset))
-
-  print(loss_values)
-  save_dir = "misc_train_checkpoint"
-  torch.save({
-              'epoch': num_epochs,
-              'model_state_dict': model.state_dict(),
-              'optimizer_state_dict': optimizer.state_dict(),
-              'loss': loss_values,
-              }, save_dir) """
 
 if __name__ == "__main__":
   main()

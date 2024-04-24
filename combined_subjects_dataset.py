@@ -1,10 +1,12 @@
-from datasets import load_from_disk
+from datasets import load_from_disk, Dataset, concatenate_datasets
 from pathlib import Path
 from scipy.stats import entropy
+import pandas as pd
+import numpy as np
 import os
 
 def main():
-   topics = ['abstract_algebra', 'anatomy', 'astronomy', 
+    topics = ['abstract_algebra', 'anatomy', 'astronomy', 
            'business_ethics', 'clinical_knowledge', 'college_biology', 
            'college_chemistry', 'college_computer_science', 'college_mathematics', 
            'college_medicine', 'college_physics', 'computer_security', 
@@ -22,26 +24,15 @@ def main():
            'philosophy', 'prehistory', 'professional_accounting', 'professional_law', 
            'professional_medicine', 'professional_psychology', 'public_relations', 
            'security_studies', 'sociology', 'us_foreign_policy', 'virology', 'world_religions']
-   
-   division = "val"
-   for sub_task in topics:
-      dataset_dir = Path(os.getcwd() + "/llama_data/" + division + "/MMLU_5shot/" + sub_task)
-      dataset = load_from_disk(dataset_dir)
-      dataset = dataset.map(post_process)
-      dataset.save_to_disk(os.getcwd() + "/llama_data/" + division + "/MMLU_5shot_postprocess/" + sub_task)
+    
+    all_datasets = []
+    split = "val"
+    for topic in topics:
+       dataset_dir = Path(os.getcwd() + "/llama_data/"+ split + "/MMLU_5shot_postprocess/" + topic)
+       all_datasets.append(load_from_disk(dataset_dir))
 
-def post_process(example):
-   is_correct = [0] * 4
-   is_correct[example["answer"]] = 1
-   example["is_correct"] = is_correct
-
-   example["ABCD_probs"] = example["ABCD_probs"][0]
-   assert(len(example["ABCD_probs"]) == 4)
-
-   example["ABCD_entropy"] = entropy(example['ABCD_probs'], base=2)
-   example["correct_prob"] = example["ABCD_probs"][example["answer"]]
-   return example
-
+    total_dataset = concatenate_datasets(all_datasets)
+    total_dataset.save_to_disk(os.getcwd() + "/llama_data/"+ split +"/MMLU_5shot_postprocess/all")
 
 if __name__ == "__main__":
   main()

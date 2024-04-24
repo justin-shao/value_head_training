@@ -26,9 +26,13 @@ def main():
            'security_studies', 'sociology', 'us_foreign_policy', 'virology', 'world_religions']
     
     # 3 columns: task name, avg accuracy, ECE
-    benchmark_results = pd.DataFrame({'subject':[], "avg_accuracy": [], "ECE": []})
+    split = "val"
+    benchmark_results = pd.DataFrame({'subject':[], 
+                                      "avg_accuracy": [], 
+                                      "ECE": [], 'count': []})
+    benchmark_results = benchmark_results.astype({"count": 'int64'})
     for subtask in topics:
-       dataset_dir = Path(os.getcwd() + "/data/test/MMLU_postprocess/" + subtask)
+       dataset_dir = Path(os.getcwd() + "/llama_data/"+ split + "/MMLU_5shot_postprocess/" + subtask)
        dataset = load_from_disk(dataset_dir)
 
        df_pandas = pd.DataFrame(dataset).drop(["model_answers"], axis=1)
@@ -51,12 +55,13 @@ def main():
        df_row = pd.DataFrame({
           'subject': subtask, 
           "avg_accuracy": avg_acc, 
-          "ECE": ece
+          "ECE": ece,
+          "count": len(dataset)
        }, index=[0])
        benchmark_results = pd.concat([benchmark_results, df_row], ignore_index=True)
     
     print(benchmark_results)
-    results_path = str(os.getcwd() + "/mmlu_bench_results")
+    results_path = str(os.getcwd() + "/mmlu_bench_results/"+ split + "_5shot")
     benchmark_results_dataset = Dataset.from_pandas(benchmark_results)
     benchmark_results_dataset.save_to_disk(results_path)
 
